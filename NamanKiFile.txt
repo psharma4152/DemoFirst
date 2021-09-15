@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 Main : ye hai naman ki file.
+=======
+
+>>>>>>> piyush
 
