@@ -37,7 +37,7 @@ public class MyController {
 	/**
 	 *
 	 * @param id
-	 * @return
+	 * @return the specific cities returned by this call
 	 */
 	@GetMapping("/cities/{id}")
 	public City getCity(@PathVariable Long id) {
