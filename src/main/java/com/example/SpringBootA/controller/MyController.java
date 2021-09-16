@@ -28,6 +28,7 @@ public class MyController {
 	@GetMapping("/cities")
 	public List<City> getAllCities() {
 		System.out.println("All Cities");
+		System.out.println("All Cities API");
 		return cityService.findAll();
 	}
 	
