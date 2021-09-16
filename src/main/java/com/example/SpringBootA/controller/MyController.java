@@ -24,14 +24,21 @@ public class MyController {
 	
 	@Autowired
 	private IcityService cityService;
-	
+
+	/**
+	 * To get the details of all the Cities.
+	 * @return
+	 */
 	@GetMapping("/cities")
 	public List<City> getAllCities() {
-		System.out.println("All Cities");
-		System.out.println("All Cities API");
 		return cityService.findAll();
 	}
-	
+
+	/**
+	 *
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("/cities/{id}")
 	public City getCity(@PathVariable Long id) {
 		return cityService.findById(id);
