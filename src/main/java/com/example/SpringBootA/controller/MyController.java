@@ -27,7 +27,7 @@ public class MyController {
 
 	/**
 	 * To get the details of all the Cities.
-	 * @return
+	 * @return returns the list of cities.
 	 */
 	@GetMapping("/cities")
 	public List<City> getAllCities() {
@@ -37,7 +37,7 @@ public class MyController {
 	/**
 	 *
 	 * @param id
-	 * @return the specific cities returned by this call
+	 * @return the specific cities returned by this call.
 	 */
 	@GetMapping("/cities/{id}")
 	public City getCity(@PathVariable Long id) {
