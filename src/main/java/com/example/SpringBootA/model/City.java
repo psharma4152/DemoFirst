@@ -10,7 +10,7 @@ import javax.persistence.Table;
 import com.sun.istack.NotNull;
 
 @Entity
-@Table(name = "city")
+@Table(name = "City")
 public class City {
 	
 	@Id
@@ -23,7 +23,6 @@ public class City {
 	private int population;
 	
 	public City() {
-		
 	}
 
 	public City(Long id, String name, int population) {
