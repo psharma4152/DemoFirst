@@ -3,6 +3,7 @@ package com.example.SpringBootA.service;
 import com.example.SpringBootA.model.City;
 import com.example.SpringBootA.repository.CityRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.Ignore;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -11,6 +12,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
@@ -37,8 +39,14 @@ public class CityServiceTest {
     @Autowired
     MockMvc mockMvc;
 
-    private CityService cityService = Mockito.mock(CityServiceImpl.class);
-    private CityRepository cityRepository = Mockito.mock(CityRepository.class);
+    //private CityService cityService = Mockito.mock(CityServiceImpl.class);
+    //private CityRepository cityRepository = Mockito.mock(CityRepository.class);
+
+    @MockBean
+    private CityService cityService;
+
+    @MockBean
+    private CityRepository cityRepository;
 
 
     @Test
@@ -56,11 +64,12 @@ public class CityServiceTest {
 
 
     @Test
+    @Ignore
     @DisplayName("To Check for getting a city Detail")
     public void ToCheckForACity() throws Exception {
-/*        City objCity = new City();
-        objCity.setName("Vidisha1");
-        when(cityRepository.findById(1L)).thenReturn(Optional.of(objCity));*/
+        City objCity = new City();
+        objCity.setName("Vidisha");
+        when(cityRepository.findById(1L)).thenReturn(Optional.of(objCity));
         MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.get("/cities/1");
         mockMvc.perform(mockRequest)
                 .andExpect(status().isOk())

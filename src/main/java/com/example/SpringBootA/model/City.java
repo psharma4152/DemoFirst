@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.sun.istack.NotNull;
 
 @Entity
@@ -18,6 +19,7 @@ public class City {
 	private Long id;
 	
 	@NotNull
+	@JsonView
 	private String name;
 	
 	private int population;

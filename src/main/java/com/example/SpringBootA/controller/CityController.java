@@ -3,6 +3,7 @@ package com.example.SpringBootA.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,9 +19,17 @@ import com.example.SpringBootA.service.CityService;
 
 @RestController
 public class CityController {
-	
+
+	@Value("${city.controller : City Controller}")
+	private String controllerName;
+
 	@Autowired
 	private CityService cityService;
+
+	@GetMapping("/city")
+	public String getControllerName(){
+		return controllerName;
+	}
 
 	/**
 	 * To get the details of all the Cities.
@@ -54,7 +63,7 @@ public class CityController {
 	
 	@GetMapping("/cities/population")
 	public List<City> fetchCitiesByPopulation(@RequestParam(value="from") int from, 
-											  @RequestParam(value="upto") int upto){
+											  @RequestParam(value="upto") int upto) {
 		return cityService.fetchByPopulationRange(from, upto);
 	}
 
